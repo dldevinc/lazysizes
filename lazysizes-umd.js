@@ -500,6 +500,7 @@ function l(window, document, Date) { // Pass in the window Date function also fo
 			var customMedia;
 
 			var sourceSrcset = source[_getAttribute](lazySizesCfg.srcsetAttr);
+			var sourceSizes = source[_getAttribute](lazySizesCfg.sizesAttr);
 
 			if( (customMedia = lazySizesCfg.customMedia[source[_getAttribute]('data-media') || source[_getAttribute]('media')]) ){
 				source.setAttribute('media', customMedia);
@@ -507,6 +508,10 @@ function l(window, document, Date) { // Pass in the window Date function also fo
 
 			if(sourceSrcset){
 				source.setAttribute('srcset', sourceSrcset);
+			}
+
+			if(sourceSizes && (sourceSizes !== 'auto')){
+				source.setAttribute('sizes', sourceSizes);
 			}
 		};
 
